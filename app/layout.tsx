@@ -22,7 +22,8 @@ export default function RootLayout({ children }: LayoutProps) {
                {children}
             </main>
             <footer>
-               [footer]
+               Game data and images courtesy
+                of <a href="https://rawg.io">RAWG</a>
             </footer>
          </body>
       </html>
