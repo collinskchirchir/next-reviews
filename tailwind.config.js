@@ -5,7 +5,11 @@ module.exports = {
     './components/**/*.{jsx,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        jakarta: ['var(--font-jakarta)', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
