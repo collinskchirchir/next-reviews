@@ -1,11 +1,13 @@
+import { readFile } from "fs/promises";
 import Heading from "@/components/Heading";
 
-export default function StardewValley() {
+export default async function StardewValley() {
+   const text = await readFile('./content/reviews/stardew-valley.md', 'utf8')
    return (
       <>
          <Heading>Stardew Valley</Heading>
          <p>
-            This will be the review for Stardew Valley
+            {text}
          </p>      
       </>
    );
