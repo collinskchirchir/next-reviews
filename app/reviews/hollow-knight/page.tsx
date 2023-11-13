@@ -1,7 +1,9 @@
+import Heading from "../../../components/Heading";
+
 export default function HollowKnight() {
    return (
       <>
-         <h1>Hollow Knight Revies</h1>
+         <Heading>Hollow Knight Revies</Heading>
          <p>
             this the one and only best game in its category.
          </p>      

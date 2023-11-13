@@ -1,9 +1,10 @@
 import Link from "next/link";
+import Heading from "../../components/Heading";
 
 export default function ReviewsPage() {
    return (
       <>
-         <h1>Reviews Page</h1>
+         <Heading>Reviews Page</Heading>
          <p>
             Here we'll list all the reviews:
          </p>
