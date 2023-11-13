@@ -8,7 +8,10 @@ export default async function StardewValley() {
    return (
       <>
          <Heading>Stardew Valley</Heading>
-         <article dangerouslySetInnerHTML={{__html: html}} />     
+         <article 
+            dangerouslySetInnerHTML={{__html: html}}
+            className="prose prose-slate"         
+         />     
       </>
    );
 }

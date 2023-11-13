@@ -1,5 +1,3 @@
-# Heading
-
 ## Sub-Heading
 
 Rich text with __bold__ or _italic_
