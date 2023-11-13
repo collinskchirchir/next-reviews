@@ -6,7 +6,7 @@ export interface Props {
 export default function Heading({children}: Props) {
    return (
       <h1
-         className={`font-bold font-jakarta text-2xl pb-3`}
+         className={`font-bold text-2xl pb-3`}
       >
       {children}
       </h1>
