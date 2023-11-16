@@ -1,20 +1,21 @@
-import { readFile } from "fs/promises";
-import matter from "gray-matter";
-import { marked } from "marked";
 import Heading from "@/components/Heading";
-
+import { getReview } from "@/lib/reviews";
 export default async function StardewValley() {
-   const text = await readFile('./content/reviews/stardew-valley.md', 'utf8');
-   const {content, data: {title, date}} = matter(text)
-   const html = marked(content)
-   console.log(title)
+   const review = await getReview('stardew-valley');
+
    return (
       <>
-         <Heading>{title}</Heading>
-         {date}
+         <Heading>{review.title}</Heading>
+         <p className="italic pb-2">{review.date}</p>
+         <img 
+            src={review.image}
+            className="mb-2 rounded"
+            width="640"
+            height="360"
+         />
          <article 
-            dangerouslySetInnerHTML={{__html: html}}
-            className="prose prose-slate"         
+            dangerouslySetInnerHTML={{__html: review.body}}
+            className="max-w-screen-sm prose prose-slate"         
          />     
       </>
    );
