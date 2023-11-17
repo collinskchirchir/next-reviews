@@ -1,6 +1,6 @@
-import { Plus_Jakarta_Sans, Crimson_Pro , JetBrains_Mono,  } from 'next/font/google'; // alternative is 'next/font/local' if you have font
+import { Plus_Jakarta_Sans, Crimson_Pro , JetBrains_Mono, Inter } from 'next/font/google'; // alternative is 'next/font/local' if you have font
 
-export const jakartaSans = Plus_Jakarta_Sans({
+export const jakartaSans = Inter({
    subsets: ['latin'],
    variable: '--font-jakarta'
 });
