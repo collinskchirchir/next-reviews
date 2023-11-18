@@ -1,3 +1,4 @@
+import exp from "constants";
 import { readdir, readFile } from "fs/promises";
 import matter from "gray-matter";
 import { marked } from "marked";
@@ -25,6 +26,8 @@ export async function getReviews(): Promise<Review[]> {
       const review = await getReview(slug);
       reviews.push(review)
    }
+   // sort Date descending order
+   reviews.sort((a, b) => b.date.localeCompare(a.date));
    return reviews;
 }
 
@@ -33,3 +36,9 @@ export async function getSlugs(): Promise<string[]> {
    return files.filter((file) => file.endsWith('.md'))
       .map(file => file.slice(0, -'.md'.length))
 }
+
+// get Featured Review
+ export async function getFeaturedReview(): Promise<Review> {
+   const reviews = await getReviews();
+   return reviews[0];
+ }
