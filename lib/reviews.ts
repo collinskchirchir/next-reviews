@@ -17,10 +17,8 @@ export async function getReview(slug: string): Promise<Review> {
    return { slug, title, date, image, body}
 }
 
-export async function getReviews(): Promise<Review[]> {
-   const files = await readdir('./content/reviews'); 
-   const slugs = files.filter((file) => file.endsWith('.md'))
-      .map(file => file.slice(0, -'.md'.length))
+export async function getReviews(): Promise<Review[]> { 
+   const slugs = await getSlugs();
    // declare empty array
    const reviews = [];
    for (const slug of slugs) {
@@ -28,4 +26,10 @@ export async function getReviews(): Promise<Review[]> {
       reviews.push(review)
    }
    return reviews;
+}
+
+export async function getSlugs(): Promise<string[]> {
+   const files = await readdir('./content/reviews'); 
+   return files.filter((file) => file.endsWith('.md'))
+      .map(file => file.slice(0, -'.md'.length))
 }
