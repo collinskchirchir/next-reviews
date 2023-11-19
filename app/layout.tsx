@@ -2,12 +2,13 @@ import { ReactNode } from "react";
 import NavBar from "../components/NavBar";
 import { jakartaSans, crimson_pro, jetbrains_mono } from "./fonts";
 import './globals.css'
+import { Metadata } from "next";
 
 interface LayoutProps {
    children: ReactNode;
 }
 
-export const metadata = {
+export const metadata: Metadata = {
    title: {
       default: 'Indie Gamer',
       template: '%s | Indie Gamer'

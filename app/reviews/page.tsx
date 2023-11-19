@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Heading from "@/components/Heading";
 import { getReviews } from "@/lib/reviews";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
    title: 'Reviews'
 }
 
