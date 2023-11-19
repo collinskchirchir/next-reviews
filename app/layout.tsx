@@ -7,6 +7,13 @@ interface LayoutProps {
    children: ReactNode;
 }
 
+export const metadata = {
+   title: {
+      default: 'Indie Gamer',
+      template: '%s | Indie Gamer'
+   }
+}
+
 export default function RootLayout({ children }: LayoutProps) {
    return (
       <html lang="en" className={`${jakartaSans.variable} ${jetbrains_mono.variable} ${crimson_pro.variable}`} >
