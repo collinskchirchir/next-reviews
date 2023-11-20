@@ -26,7 +26,7 @@ export async function generateStaticParams(): Promise<ReviewPageParams[]> {
 
 export default async function ReviewPage({ params: { slug } }: ReviewPageProps) {
    const review = await getReview(slug);
-   console.log('[ReviewPage] rendering', slug);
+   // console.log('[ReviewPage] rendering', slug);
    return (
       <>
          <Heading>{review.title}</Heading>
