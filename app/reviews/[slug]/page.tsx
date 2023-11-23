@@ -18,15 +18,15 @@ export async function generateMetadata({ params: { slug } }: ReviewPageProps): P
    }
 }
 
-export async function generateStaticParams(): Promise<ReviewPageParams[]> {
-   const slugs = await getSlugs();
-   // transform each string in array into object: parenthesis required around boject literal the or will be treated as function body
-   return slugs.map((slug) => ({ slug }));
-}
+// export async function generateStaticParams(): Promise<ReviewPageParams[]> {
+//    const slugs = await getSlugs();
+//    // transform each string in array into object: parenthesis required around boject literal the or will be treated as function body
+//    return slugs.map((slug) => ({ slug }));
+// }
 
 export default async function ReviewPage({ params: { slug } }: ReviewPageProps) {
    const review = await getReview(slug);
-   // console.log('[ReviewPage] rendering', slug);
+   console.log('[ReviewPage] review: ', review);
    return (
       <>
          <Heading>{review.title}</Heading>
