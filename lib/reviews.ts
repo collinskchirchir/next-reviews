@@ -1,4 +1,3 @@
-import { readdir } from "fs/promises";
 import { marked } from "marked";
 import qs from 'qs';
 
@@ -48,9 +47,13 @@ export async function getReview(slug: string): Promise<FullReview> {
    }
 
    export async function getSlugs(): Promise<string[]> {
-      const files = await readdir('./content/reviews');
-      return files.filter((file) => file.endsWith('.md'))
-         .map(file => file.slice(0, -'.md'.length))
+      const parameters = {
+         fields: ['slug'],
+         sort: ['publishedAt:desc'],
+         pagination: { pageSize: 100 }
+      };
+      const { data } = await fetchReviews(parameters)
+      return data.map((item) => item.attributes.slug);
    }
 
    // get Featured Review
@@ -63,7 +66,7 @@ export async function getReview(slug: string): Promise<FullReview> {
    async function fetchReviews(parameters: any) {
       const url = `${CMS_URL}/api/reviews?`
          + qs.stringify(parameters, { encodeValuesOnly: true });
-      console.log('fetchReviews: ', url)
+      // console.log('fetchReviews: ', url)
       const response = await fetch(url);
       if(!response.ok){
          throw new Error(`CMS returned ${response.status} for ${url}`);
