@@ -12,7 +12,6 @@ export default function ShareLinkButton() {
       setClicked(true);
       setTimeout(() => setClicked(false), 1500)
    }
-   console.log('[ShareLinkButton] clicked:', clicked)
    return (
       <button
          onClick={handleClick}
