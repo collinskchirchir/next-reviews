@@ -35,11 +35,11 @@ export async function getReview(slug: string): Promise<FullReview> {
       }
    }
 
-   export async function getReviews(): Promise<Review[]> {
+   export async function getReviews(pageSize: number = 6): Promise<Review[]> {
       const parameters = {
          fields: ['slug', 'title', 'subtitle', 'publishedAt'],
          populate: { image: { fields: ['url'] } },
-         pagination: { pageSize: 6 },
+         pagination: { pageSize },
          sort: ['publishedAt:desc']
       };
       const { data } = await fetchReviews(parameters)
@@ -54,12 +54,6 @@ export async function getReview(slug: string): Promise<FullReview> {
       };
       const { data } = await fetchReviews(parameters)
       return data.map((item) => item.attributes.slug);
-   }
-
-   // get Featured Review
-   export async function getFeaturedReview(): Promise<Review> {
-      const reviews = await getReviews();
-      return reviews[0];
    }
 
    // fetch reviews from API
