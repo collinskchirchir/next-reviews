@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Heading from "@/components/Heading";
 import ShareLinkButton from "@/components/ShareLinkButton";
 import { getReview, getSlugs } from "@/lib/reviews";
@@ -35,7 +36,7 @@ export default async function ReviewPage({ params: { slug } }: ReviewPageProps) 
             <p className="italic pb-2">{review.date}</p>
             <ShareLinkButton />
          </div>
-         <img
+         <Image
             src={review.image}
             className="mb-2 rounded"
             width="640"
