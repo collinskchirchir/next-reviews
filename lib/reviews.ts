@@ -5,6 +5,7 @@ const CMS_URL = 'http://localhost:1337'
 
 export interface Review {
    title: string;
+   subtitle: string;
    date: string;
    image: string;
    slug: string;
@@ -74,6 +75,7 @@ export async function getReview(slug: string): Promise<FullReview> {
       return {
             slug: attributes.slug,
             title: attributes.title,
+            subtitle: attributes.subtitle,
             date: attributes.publishedAt.slice(0, 'yyyy-mm-dd'.length),
             image: CMS_URL + attributes.image.data.attributes.url
       }
